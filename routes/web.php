@@ -29,6 +29,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/books/{id}/edit', [BookController::class, 'edit'])->name('books.edit');
     Route::match(['put', 'patch'], 'books/{id}', [BookController::class, 'update'])->name('books.update');
     Route::delete('/books/{id}', [BookController::class, 'destroy'])->name('books.destroy');
+    Route::get('/books/export', [BookController::class, 'export'])->name('books.export');
+    Route::post('/books/import', [BookController::class, 'import'])->name('books.import');
 
     Route::get('/bookshelves', [BookshelfController::class, 'index'])->name('bookshelves');
     Route::get('/bookshelves/create', [BookshelfController::class, 'create'])->name('bookshelves.create');
